@@ -15,16 +15,16 @@ const HomePage = () => {
   ];
   return (
     <>
-      <div className="relative  h-screen w-screen grid grid-cols-3 bg-midnight">
+   <div className="relative grid grid-cols-[1.5fr_1fr_1fr] bg-midnight">
         {/* Left side with two stacked boxes */}
         <div className="col-span-1 z-10 flex flex-col space-y-4 p-2">
           {/* Box 1 */}
-          <div className="bg-earthy z-10 mt-14 rounded-3xl min-h-[200px] p-4">
+          <div className="bg-earthy z-10  rounded-3xl min-h-[200px] p-4">
             <CarouselContainer items={CarouselItem} />
           </div>
 
           {/* Box 2 */}
-          <div className="bg-charcoal z-10 border-[2px] justify-between  text-white border-dotted border-sunshine  h-full rounded-3xl p-8 flex flex-col">
+          <div className="bg-charcoal  z-10 border-[2px] justify-between  text-white border-dotted border-sunshine h-[700px] rounded-3xl p-8 flex flex-col">
             {/* Title with each word on a new line */}
             <div className="flex flex-col justify-start">
 

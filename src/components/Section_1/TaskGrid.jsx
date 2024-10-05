@@ -12,7 +12,7 @@ const TaskGrid = () => {
           return (
             <div
               key={index}
-              className="flex  flex-col  bg-espresso rounded-[30px] shadow-lg"
+              className="flex pt-5 pb-20  flex-col  bg-espresso rounded-[30px] shadow-lg"
             >
               <h1 className="text-[60px]">{item.type}.</h1>
               <h2 className="text-[20px] mt-3  font-bold">
@@ -27,7 +27,7 @@ const TaskGrid = () => {
                 <p className="text-gray-300 mt-5 text-lg">{rest.join(". ")}</p>
               )}
 
-              <div className="flex justify-end mt-[400px] mr-5">
+              <div className="flex justify-end  mr-5">
                 <span className="flex items-center w-[15%] text-black justify-center p-2 border rounded-full bg-sunshine cursor-pointer">
                   <ArrowRight />
                 </span>

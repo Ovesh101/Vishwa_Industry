@@ -3,9 +3,8 @@ import FadeInSection from "../FadeInSection";
 import TaskGrid from "./TaskGrid";
 
 const Section_1 = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef(null);
-
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -27,23 +26,27 @@ const Section_1 = () => {
   }, []);
   return (
     <section className="bg-midnight p-2 w-[100vw] text-white">
-      <FadeInSection>
-        <div className="relative">
-          {/* First Div */}
+      <div className="relative">
+        {/* First Div */}
+        <FadeInSection>
           <div className="h-[300px] rounded-[50px]  bg-earthy">
-            
-              <h1 className="text-5xl px-10 py-10 ">
-                Robotics Process Automation allows easy and centralised control over all automation
-              </h1>
-            
+            <h1 className="text-5xl px-10 py-10 ">
+              Robotics Process Automation allows easy and centralised control
+              over all automation
+            </h1>
           </div>
+        </FadeInSection>
 
-          {/* Second Div overlapping */}
-          <div ref={sectionRef} className="w-full mt-[-120px] h-[800px]  rounded-[50px]    bg-charcoal">
+        {/* Second Div overlapping */}
+        <FadeInSection delay={150}>
+          <div
+            ref={sectionRef}
+            className="w-full mt-[-120px]   rounded-[50px]    bg-charcoal"
+          >
             <TaskGrid isVisible={isVisible} />
           </div>
-        </div>
-      </FadeInSection>
+        </FadeInSection>
+      </div>
     </section>
   );
 };
