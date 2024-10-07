@@ -1,28 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-body{
-    font-family: "Jost", "Helvetica", "Arial", sans-serif;
+body {
+  font-family: "Jost", "Helvetica", "Arial", sans-serif;
 }
 /* .rfm-marquee{
   max-width: 800px !important;
 } */
 
-
 .metaball {
   position: relative;
   display: inline-block;
   z-index: 1;
-
-
 }
 
-.rfm-marquee{
+.rfm-marquee {
   max-width: 100% !important;
 }
 
@@ -33,7 +28,7 @@ body{
   left: 0;
   height: 100%;
   width: 0%; /* Start with no width */
-  background-color: #FEECA2; /* Background color */
+  background-color: #feeca2; /* Background color */
   z-index: -1; /* Ensure it's behind the text */
   transition: width 3s ease; /* Smooth transition on hover */
 }
@@ -42,24 +37,17 @@ body{
   width: 100%; /* Fully cover the text after page load */
 }
 
-
-
-
-
-
-
-
-  
-
 .fade-in-section {
-    opacity: 0;
-    transform: translateY(20vh);
-    visibility: hidden;
-    transition: opacity 250ms ease, transform 450ms ease;
-    will-change: opacity, visibility;
-  }
-  .fade-in-section.is-visible {
-    opacity: 1;
-    transform: none;
-    visibility: visible;
-  }
+  opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 250ms ease, transform 450ms ease;
+  will-change: opacity, visibility;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+}
+
+

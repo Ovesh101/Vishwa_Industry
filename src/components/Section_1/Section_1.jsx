@@ -30,7 +30,7 @@ const Section_1 = () => {
         {/* First Div */}
         <FadeInSection>
           <div className="h-[300px] rounded-[50px]  bg-earthy">
-            <h1 className="text-[50px]  leading-[62px] font-[500px] px-10 py-10 ">
+            <h1 className="text-[50px]  h-[132px] leading-[62px] font-[500] px-10 py-10 ">
               Robotics Process Automation allows easy and centralised control
               over all automation
             </h1>
@@ -41,7 +41,7 @@ const Section_1 = () => {
         <FadeInSection delay={150}>
           <div
             ref={sectionRef}
-            className="w-full mt-[-120px]   rounded-[50px]    bg-charcoal"
+            className="w-full mt-[-120px]   rounded-[40px]    bg-charcoal"
           >
             <TaskGrid isVisible={isVisible} />
           </div>
