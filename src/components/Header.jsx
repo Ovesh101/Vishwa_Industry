@@ -6,14 +6,14 @@ const Header = () => {
       {/* Set up the grid layout */}
       <div className="grid grid-cols-[1.5fr_2fr] items-center gap-4">
         {/* Logo and Search Bar in the first column */}
-        <div className="flex items-center space-x-4">
+        <div className="flex max-w-[800px] items-center space-x-4">
           {/* Logo */}
           <div className="border my-2 w-[130px] h-[60px] border-gray-500 py-4 px-6 drop-shadow-xl border-dotted rounded-xl flex-shrink-0">
             <h1 className="text-xl text-[#F8F4F1] text-center font-bold">Logo</h1>
           </div>
 
           {/* Search Bar */}
-          <div className=" mb-3 w-full h-[60px] pt-2 ">
+          <div className=" mb-3 w-full  h-[60px] pt-2 ">
             <div className="relative">
               <span className="absolute left-3 top-1/2 transform -translate-y-1/2">
                 <LucideSearch />

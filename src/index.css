@@ -22,6 +22,10 @@ body{
 
 }
 
+.rfm-marquee{
+  max-width: 100% !important;
+}
+
 .metaball::before {
   content: "";
   position: absolute;

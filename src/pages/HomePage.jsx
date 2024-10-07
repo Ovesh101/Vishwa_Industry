@@ -42,7 +42,7 @@ const HomePage = () => {
               <div className="text-[70px] w-[433px] h-[231px] text-[#F8F4F1] leading-[72px] font-[500px] ">
                 Transforming Business Operations
               </div>
-
+            
               {/* Some additional text */}
               <p className="text-[16px]  font-[500] mt-5 text-[#A5A3A2] w-[399px] h-[63px] ">
               Vishwa Industries is an enterprise that enables the

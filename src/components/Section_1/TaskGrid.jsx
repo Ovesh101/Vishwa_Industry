@@ -48,7 +48,7 @@ const TaskGrid = () => {
       {/* Second Column for Type 2 and Type 3 */}
 
       <div className="flex justify-between  flex-col">
-        <FadeInSection delay={150}>
+        <FadeInSection delay={300}>
           {TaskItems.map((item, index) => {
             if (item.type === 2) {
               return (
@@ -95,7 +95,7 @@ const TaskGrid = () => {
       </div>
 
       {/* Third Column for Type "" (Tasks) */}
-      <FadeInSection delay={150}>
+      <FadeInSection delay={450}>
         <div className="rounded-[30px] h-[570px] bg-transparent border-dotted border-[2px] border-[#A5A3A2] p-4">
           <div class="bg-sunshine w-16 h-16 rounded-full"></div>
 
