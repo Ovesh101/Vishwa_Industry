@@ -25,12 +25,12 @@ const Section_1 = () => {
     };
   }, []);
   return (
-    <section className="bg-midnight p-2 w-[100vw] text-white">
+    <section className="bg-midnight p-2  text-white">
       <div className="relative">
         {/* First Div */}
         <FadeInSection>
           <div className="h-[300px] rounded-[50px]  bg-earthy">
-            <h1 className="text-5xl px-10 py-10 ">
+            <h1 className="text-[50px]  leading-[62px] font-[500px] px-10 py-10 ">
               Robotics Process Automation allows easy and centralised control
               over all automation
             </h1>

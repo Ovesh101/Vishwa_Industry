@@ -9,30 +9,41 @@
 body{
     font-family: "Jost", "Helvetica", "Arial", sans-serif;
 }
+/* .rfm-marquee{
+  max-width: 800px !important;
+} */
+
+
+.metaball {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+
+
+}
+
+.metaball::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%; /* Start with no width */
+  background-color: #FEECA2; /* Background color */
+  z-index: -1; /* Ensure it's behind the text */
+  transition: width 3s ease; /* Smooth transition on hover */
+}
+
+.metaball.loaded::before {
+  width: 100%; /* Fully cover the text after page load */
+}
 
 
 
-@keyframes throwAnimation {
-    0% {
-      transform: translateY(0) rotate(0deg);
-      opacity: 1;
-    }
-    50% {
-      transform: translateY(-30px) rotate(-10deg);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0) rotate(10deg);
-      opacity: 0;
-    }
-  }
-  
-  .thrown {
-    animation: throwAnimation 0.6s forwards;
-  }
 
 
-  /* Add this in your CSS file */
+
+
 
   
 
