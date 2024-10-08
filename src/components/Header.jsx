@@ -40,7 +40,6 @@ const Header = () => {
         // Navigate to the product listing page with the search query
         navigate(`/product_listing?query=${encodeURIComponent(searchQuery)}`);
       }
-      setSearchQuery(""); // Clear input after navigating
     }
   };
 
@@ -48,9 +47,9 @@ const Header = () => {
     <header className="bg-midnight text-gray-300 px-3">
       <div className="grid grid-cols-[1.5fr_2fr] items-center gap-4">
         <div className="flex items-center space-x-4">
-          <div className="border w-[130px] h-[60px] border-[#A5A3A2] py-4 px-6 border-dashed rounded-xl flex-shrink-0">
-            <h1 className="text-[16px] text-[#F8F4F1] text-center font-[500]">Logo</h1>
-          </div>
+          <Link to="/" className="border w-[130px] h-[60px] border-[#A5A3A2]  px-8 border-dashed rounded-xl flex-shrink-0">
+            <div className="text-[16px] text-[#F8F4F1] text-center  font-[500]"><img src="/Images/Logo.svg" className="w-16 h-16" alt="Logo" /></div>
+          </Link>
 
           <form onSubmit={handleSearch} className="mb-3 w-full h-[60px] pt-2">
             <div className="relative">

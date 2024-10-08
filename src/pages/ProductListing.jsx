@@ -34,6 +34,7 @@ const ProductListing = () => {
                 <img
                   src={product.image}
                   alt={product.title}
+                  loading="lazy"
                   className="object-contain" // Ensure the image is properly sized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-30" />
@@ -44,7 +45,7 @@ const ProductListing = () => {
             </FadeInSection>
           ))
         ) : (
-          <h1 className="text-[24px] font-[500] text-center">No Products Found</h1>
+          <div className="text-[24px] min-h-screen font-[500] text-center">No Products Found</div>
         )}
       </div>
     </div>
