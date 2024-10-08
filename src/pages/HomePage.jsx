@@ -15,6 +15,7 @@ const HomePage = () => {
 
     return () => clearTimeout(timer); // Cleanup timer on unmount
   }, []);
+  
   const data = [
     {
       percentage: "75%",
@@ -79,7 +80,7 @@ const HomePage = () => {
         {/* Right side with full-screen video */}
         <div className="relative col-span-2">
           <video
-            className="h-full w-full object-cover"
+            className="h-full  w-full object-cover"
             src="/Video/engine.mp4" // Replace with your video source
             autoPlay
             muted

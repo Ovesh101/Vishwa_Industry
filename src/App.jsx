@@ -1,11 +1,12 @@
-import React from "react";
+import React , {lazy , Suspense} from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
-import ProductListing from "./pages/ProductListing";
+const ProductListing = lazy(()=> import("./pages/ProductListing"))
+import Spinner from "./components/Spinner";
 
 
 // Layout component with Header and Footer
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> }, // Home page route
       { path: "/about", element: <AboutUs /> }, // About page route
       { path: "/contact", element: <ContactUs /> }, // Contact page route
-      { path: "/product_listing", element: <ProductListing /> }, // Contact page route
+      { path: "/product_listing", element: (<Suspense fallback={<Spinner />} >
+         <ProductListing />
+      </Suspense>
+      )
+       }, // Contact page route
       // Add more routes as needed
     ],
   },

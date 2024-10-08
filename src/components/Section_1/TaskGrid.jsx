@@ -36,7 +36,7 @@ const TaskGrid = () => {
                 )}
 
                 <div className="flex justify-end  mr-5">
-                  <span className="flex group-hover:bg-midnight group-hover:text-sunshine items-center bottom-5   h-[50px] absolute  text-midnight justify-center  border w-[80px] rounded-[30px] bg-sunshine cursor-pointer">
+                  <span className="flex group-hover:bg-midnight group-hover:text-sunshine items-center bottom-5   h-[50px] absolute  text-midnight justify-center  w-[80px] rounded-[30px] bg-sunshine cursor-pointer">
                     <ArrowRight />
                   </span>
                 </div>
@@ -66,7 +66,7 @@ const TaskGrid = () => {
                     {item.description}
                   </p>
                   <div className="flex justify-end mr-5 ">
-                    <span className="flex group-hover:bg-midnight group-hover:text-sunshine absolute text-midnight rounded-[30px] bottom-5 w-[80px] h-[50px] items-center justify-center  border   bg-sunshine cursor-pointer">
+                    <span className="flex group-hover:bg-midnight group-hover:text-sunshine absolute text-midnight rounded-[30px] bottom-5 w-[80px] h-[50px] items-center justify-center    bg-sunshine cursor-pointer">
                       <ArrowRight />
                     </span>
                   </div>
@@ -92,7 +92,7 @@ const TaskGrid = () => {
                     {item.description}
                   </p>
                   <div className="flex justify-end mr-5">
-                    <span className="flex items-center absolute bottom-5 h-[50px] rounded-[30px] justify-center p-2 border w-[80px] bg-sunshine cursor-pointer text-midnight group-hover:bg-midnight group-hover:text-sunshine transition-colors duration-300 ease-in-out">
+                    <span className="flex items-center absolute bottom-5 h-[50px] rounded-[30px] justify-center p-2  w-[80px] bg-sunshine cursor-pointer text-midnight group-hover:bg-midnight group-hover:text-sunshine transition-colors duration-300 ease-in-out">
                       <ArrowRight />
                     </span>
                   </div>

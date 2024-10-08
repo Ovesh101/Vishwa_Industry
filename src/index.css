@@ -25,16 +25,17 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
+  left: -2px;
   height: 100%;
   width: 0%; /* Start with no width */
   background-color: #feeca2; /* Background color */
   z-index: -1; /* Ensure it's behind the text */
   transition: width 3s ease; /* Smooth transition on hover */
+  border-radius: 4px;
 }
 
 .metaball.loaded::before {
-  width: 100%; /* Fully cover the text after page load */
+  width: calc(100% + 4px); /* Fully cover the text after page load */
 }
 
 .fade-in-section {
