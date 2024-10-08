@@ -1,33 +1,57 @@
 import { LucideSearch } from "lucide-react"; // Assuming you're using Lucide icons
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState } from "react";
+
+// Custom debounce function
+const debounce = (func, delay) => {
+  let timeout;
+  return (...args) => {
+    if (timeout) clearTimeout(timeout); // Clear any existing timeout
+    timeout = setTimeout(() => {
+      func(...args); // Call the function after the delay
+    }, delay);
+  };
+};
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+
+  // Debounced function to update the search query in URL params
+  const debouncedUpdateQuery = debounce((query) => {
+    setSearchParams({ query }); // Set the query parameter in the URL
+  }, 300); // Debounce delay of 300ms
+
+  const handleInputChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+
+    // Update the search query in URL if on the product_listing page
+    if (window.location.pathname === "/product_listing") {
+      debouncedUpdateQuery(query);
+    }
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      // Navigate to product listing page with the search query
-      navigate(`/product_listing?query=${encodeURIComponent(searchQuery)}`);
-      setSearchQuery("")
-      
+      if (window.location.pathname !== "/product_listing") {
+        // Navigate to the product listing page with the search query
+        navigate(`/product_listing?query=${encodeURIComponent(searchQuery)}`);
+      }
+      setSearchQuery(""); // Clear input after navigating
     }
   };
 
   return (
     <header className="bg-midnight text-gray-300 px-3">
-      {/* Set up the grid layout */}
       <div className="grid grid-cols-[1.5fr_2fr] items-center gap-4">
-        {/* Logo and Search Bar in the first column */}
         <div className="flex items-center space-x-4">
-          {/* Logo */}
           <div className="border w-[130px] h-[60px] border-[#A5A3A2] py-4 px-6 border-dashed rounded-xl flex-shrink-0">
             <h1 className="text-[16px] text-[#F8F4F1] text-center font-[500]">Logo</h1>
           </div>
 
-          {/* Search Bar */}
           <form onSubmit={handleSearch} className="mb-3 w-full h-[60px] pt-2">
             <div className="relative">
               <span className="absolute font-[500] left-4 top-1/2 transform -translate-y-1/2">
@@ -37,14 +61,13 @@ const Header = () => {
                 type="text"
                 placeholder="SEARCH..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)} // Update searchQuery on input change
+                onChange={handleInputChange} // Update the query
                 className="w-full py-4 text-[16px] font-[500] placeholder-[#454545] px-10 bg-transparent border border-gray-500 border-dashed rounded-xl text-[#F8F4F1] focus:outline-none"
               />
             </div>
           </form>
         </div>
 
-        {/* Navigation Links */}
         <Navigation />
       </div>
     </header>

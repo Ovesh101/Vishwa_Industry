@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import React from "react";
 import Marquee from "react-fast-marquee";
+import { Link } from "react-router-dom";
 
 const CarouselItemContainer = ({ items }) => {
   return (
@@ -8,7 +9,8 @@ const CarouselItemContainer = ({ items }) => {
       <Marquee  pauseOnHover gradient={false} speed={100}>
         <div className="flex  justify-end ">
           {items.map((item) => (
-            <div
+            <Link
+            to="/contact"
               key={item.id}
               className="flex gap-5 pr-12   flex-shrink-0 justify-between items-center p-2"
             >
@@ -19,7 +21,7 @@ const CarouselItemContainer = ({ items }) => {
                 <ArrowRight className="text-[#585450]" />{" "}
                 {/* Right arrow icon */}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </Marquee>
