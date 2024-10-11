@@ -1,97 +1,61 @@
-import { LucideSearch } from "lucide-react"; // Assuming you're using Lucide icons
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom"; // Import useSearchParams for accessing URL parameters
+import FadeInSection from "../components/FadeInSection";
+import { useEffect, useState } from "react";
+import { ProductCard } from "./ProductCard.js"; // Assuming this is an array of product data
 
-import MobileNav from "../components/MobileNav";
+const ProductListing = () => {
+  const [searchParams] = useSearchParams(); // Use the hook to get search parameters
+  const [filteredProducts, setFilteredProducts] = useState(ProductCard); // Assuming ProductCard is the product list
 
-// Custom debounce function
-const debounce = (func, delay) => {
-  let timeout;
-  return (...args) => {
-    if (timeout) clearTimeout(timeout); // Clear any existing timeout
-    timeout = setTimeout(() => {
-      func(...args); // Call the function after the delay
-    }, delay);
-  };
-};
-
-const Header = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
-  const navigate = useNavigate();
-
-  // Debounced function to update the search query in URL params
-  const debouncedUpdateQuery = debounce((query) => {
-    setSearchParams({ query }); // Set the query parameter in the URL
-  }, 300); // Debounce delay of 300ms
-
-  const handleInputChange = (e) => {
-    const query = e.target.value;
-    setSearchQuery(query);
-
-    // Update the search query in URL if on the product_listing page
-    if (window.location.pathname === "/product_listing") {
-      debouncedUpdateQuery(query);
+  // Function to filter products based on the search query
+  const filterProducts = (query) => {
+    if (!query) {
+      setFilteredProducts(ProductCard); // If no query, return all products
+      return;
     }
+    const regex = new RegExp(query, "i"); // Case-insensitive regex
+    const filtered = ProductCard.filter((product) => regex.test(product.title));
+    setFilteredProducts(filtered);
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      if (window.location.pathname !== "/product_listing") {
-        // Navigate to the product listing page with the search query
-        navigate(`/product_listing?query=${encodeURIComponent(searchQuery)}`);
-      }
-    }
-  };
+  useEffect(() => {
+    const query = searchParams.get("query") || ""; // Get the search query from URL parameters
+    console.log("Search Query:", query); // Log the search query
+    filterProducts(query); // Filter products based on the query
+  }, [searchParams]); // Re-run the effect whenever the search parameters change
 
   return (
-    <header className="bg-midnight text-gray-300 px-3 py-2 md:py-4">
-      <div className="flex justify-between items-center gap-4 flex-wrap">
-        {/* Logo */}
-        <Link
-          to="/"
-          className="w-[161px] h-[60px] flex-shrink-0"
-        >
-          <img
-            src="/Images/Logo.svg"
-            alt="Logo"
-            className="w-full h-full object-contain"
-          />
-        </Link>
-
-        {/* Search Form */}
-        <form onSubmit={handleSearch}>
-          <div className="relative">
-            <span className="absolute font-[500] left-4 top-1/2 transform -translate-y-1/2">
-              <LucideSearch className="h-[16px] w-[16px]" />
-            </span>
-            <input
-              type="text"
-              placeholder="SEARCH..."
-              value={searchQuery}
-              onChange={handleInputChange} // Update the query
-              className="w-full py-2 text-[14px] md:text-[16px] font-[500] placeholder-[#454545] px-10 bg-transparent border border-gray-500 border-dashed rounded-xl text-[#F8F4F1] focus:outline-none"
-            />
-          </div>
-        </form>
-
-        {/* Navigation Links */}
-        <MobileNav />
-        <Navigation />
+    <div className="bg-midnight p-2 text-white">
+    {/* Check if filteredProducts is empty */}
+    {filteredProducts.length === 0 ? (
+      <div className="text-center h-screen bg-midnight p-5">
+        <h2 className="text-[24px] font-[500]">No products available</h2>
       </div>
-    </header>
+    ) : (
+      <div className="grid grid-cols-1 place-items-center  md:p-5 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {filteredProducts.map((card, index) => (
+          <FadeInSection key={card.id} delay={150 + index * 80}>
+            <div className="relative w-full h-full rounded-[30px] overflow-hidden">
+              {/* Image */}
+              <div className="w-full bg-espresso rounded-[30px] px-2 pt-2 pb-6">
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="object-contain rounded-[25px] w-full" // Ensure the image fits within the container
+                />
+                <div className="flex gap-3 justify-start items-end ml-2 mt-4">
+                  <h1 className="text-[18px] font-[500]">{card.id}.</h1>
+                  <h2 className="text-[18px] font-[500]">{card.title}</h2>
+                </div>
+              </div>
+            </div>
+          </FadeInSection>
+        ))}
+      </div>
+    )}
+  </div>
+  
   );
 };
 
-// Navigation Component
-const Navigation = () => (
-  <nav className="hidden sm:flex font-[500] border-dashed text-[#F8F4F1] border-[#A5A3A2] justify-around border h-[50px] md:h-[60px] py-2 px-4 md:py-4 md:px-10 rounded-xl space-x-6">
-    <Link to="/" className="hover:text-[#A5A3A2]">Home</Link>
-    <Link to="/about" className="hover:text-[#A5A3A2]">About</Link>
-    <Link to="/product_listing" className="hover:text-[#A5A3A2]">Products</Link>
-    <Link to="/contact" className="hover:text-[#A5A3A2]">Contact</Link>
-  </nav>
-);
-
-export default Header;
+export default ProductListing;
