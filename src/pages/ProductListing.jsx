@@ -25,7 +25,7 @@ const ProductListing = () => {
   }, [searchParams]); // Re-run the effect whenever the search parameters change
 
   return (
-    <div className="bg-midnight p-2 text-white">
+    <div className="bg-midnight h-screen p-2 text-white">
     {/* Check if filteredProducts is empty */}
     {filteredProducts.length === 0 ? (
       <div className="text-center h-screen bg-midnight p-5">
