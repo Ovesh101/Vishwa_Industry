@@ -45,7 +45,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-midnight text-gray-300 px-2">
+    <header className="bg-midnight text-gray-300 px-2 ">
       <div className="grid grid-cols-[1.5fr_2fr] items-center gap-2 md:gap-4">
         <div className="flex items-center space-x-2 md:space-x-4">
           <Link to="/" className="border w-[80px] px-4 md:w-[130px] h-[60px] border-[#A5A3A2]  md:px-8 border-dashed rounded-[15px] flex-shrink-0">
