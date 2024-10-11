@@ -29,4 +29,14 @@ export const cardData = [
       title: "Bevel Gear",
       image: "/Images/Haar.png",
     },
+    {
+      id: 7,
+      title: "Bevel Gear",
+      image: "/Images/Haar.png",
+    },
+    {
+      id: 8,
+      title: "Bevel Gear",
+      image: "/Images/Haar.png",
+    },
   ];

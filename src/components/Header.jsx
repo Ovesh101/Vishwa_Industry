@@ -1,6 +1,7 @@
 import { LucideSearch } from "lucide-react"; // Assuming you're using Lucide icons
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState } from "react";
+import MobileNav from "./MobileNav";
 
 // Custom debounce function
 const debounce = (func, delay) => {
@@ -66,7 +67,7 @@ const Header = () => {
             </div>
           </form>
         </div>
-
+        <MobileNav />
         <Navigation />
       </div>
     </header>
@@ -75,7 +76,7 @@ const Header = () => {
 
 // Navigation Component
 const Navigation = () => (
-  <nav className="font-[500] border-dashed text-[#F8F4F1] border-[#A5A3A2] justify-around border h-[60px] py-4 px-10 rounded-xl flex space-x-6">
+  <nav className="hidden sm:flex font-[500] border-dashed text-[#F8F4F1] border-[#A5A3A2] justify-around border h-[60px] py-4 px-10 rounded-xl space-x-6">
     <Link to="/" className="hover:text-[#A5A3A2]">Home</Link>
     <Link to="/about" className="hover:text-[#A5A3A2]">About</Link>
     <Link to="/product_listing" className="hover:text-[#A5A3A2]">Products</Link>

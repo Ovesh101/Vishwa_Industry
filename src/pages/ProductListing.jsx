@@ -26,29 +26,35 @@ const ProductListing = () => {
 
   return (
     <div className="bg-midnight p-2 text-white">
-      <div className="grid grid-cols-1 place-items-center p-10 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product, index) => (
-            <FadeInSection delay={150 + index * 80} key={product.id}>
-              <div className="relative w-full h-full rounded-[30px] overflow-hidden">
+    {/* Check if filteredProducts is empty */}
+    {filteredProducts.length === 0 ? (
+      <div className="text-center h-screen bg-midnight p-5">
+        <h2 className="text-[24px] font-[500]">No products available</h2>
+      </div>
+    ) : (
+      <div className="grid grid-cols-1 place-items-center p-5 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {filteredProducts.map((card, index) => (
+          <FadeInSection key={card.id} delay={150 + index * 80}>
+            <div className="relative w-full h-full rounded-[30px] overflow-hidden">
+              {/* Image */}
+              <div className="w-full bg-espresso rounded-[30px] px-2 pt-2 pb-6">
                 <img
-                  src={product.image}
-                  alt={product.title}
-                  loading="lazy"
-                  className="object-contain" // Ensure the image is properly sized
+                  src={card.image}
+                  alt={card.title}
+                  className="object-contain rounded-[25px] w-full" // Ensure the image fits within the container
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-30" />
-                <div className="absolute bottom-5 left-[40px] flex items-center justify-center z-10">
-                  <h2 className="text-[24px] font-[500]">{product.title}</h2>
+                <div className="flex gap-3 justify-start items-end ml-2 mt-4">
+                  <h1 className="text-[18px] font-[500]">{card.id}.</h1>
+                  <h2 className="text-[18px] font-[500]">{card.title}</h2>
                 </div>
               </div>
-            </FadeInSection>
-          ))
-        ) : (
-          <div className="text-[24px] min-h-screen font-[500] text-center">No Products Found</div>
-        )}
+            </div>
+          </FadeInSection>
+        ))}
       </div>
-    </div>
+    )}
+  </div>
+  
   );
 };
 
