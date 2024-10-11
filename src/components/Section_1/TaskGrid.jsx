@@ -6,110 +6,92 @@ import FallingObject from "../FallingObject";
 
 const TaskGrid = () => {
   return (
-    <div className="rounded-[50px] p-10  bg-charcoal grid grid-cols-3 gap-4">
+    <div className="p-2 md:p-4 bg-charcoal grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-[30px] lg:rounded-[50px]">
       {/* First Column for Type 1 */}
-
       <FadeInSection delay={150}>
-        {TaskItems.map((item, index) => {
-          if (item.type === 1) {
-            const [firstSentence, ...rest] = item.description.split(". "); // Splits the description at the first full stop.
-            return (
-              <div
-                key={index}
-                className="flex pt-5 group hover:text-midnight  hover:bg-sunshine transition-all duration-500 ease-in-out  relative h-[570px] pb-20 p-4  flex-col  bg-espresso rounded-[30px] shadow-lg"
-              >
-                <h1 className="text-[24px] group-hover:text-midnight font-[500] ">{item.type}.</h1>
-                <h2 className="text-[32px] group-hover:text-midnight mt-3 w-[260px] h-[81px] leading-[38px]   font-[500]">
-                  {item.title}
-                </h2>
-
-                {/* First paragraph of the description */}
-                <p className="text-[#A5A3A2] mt-5 font-[500] text-[16px] leading-[21px] ">
-                  {firstSentence}.
+        {TaskItems.filter(item => item.type === 1).map((item, index) => {
+          const [firstSentence, ...rest] = item.description.split(". ");
+          return (
+            <div
+              key={index}
+              className="flex flex-col group hover:text-midnight hover:bg-sunshine transition-all duration-500 ease-in-out relative h-[570px] pb-10 p-6 bg-espresso rounded-[20px] md:rounded-[30px]"
+            >
+              <h1 className="text-[20px] md:text-[24px] group-hover:text-midnight font-[500]">{item.type}.</h1>
+              <h2 className="text-[24px] md:text-[32px] group-hover:text-midnight mt-3 leading-[30px] md:leading-[38px] font-[500]">
+                {item.title}
+              </h2>
+              <p className="text-[#A5A3A2] mt-5 font-[500] text-[14px] md:text-[16px] leading-[20px]">
+                {firstSentence}.
+              </p>
+              {rest.length > 0 && (
+                <p className="text-[#A5A3A2] text-[14px] md:text-[16px] leading-[20px] mt-3">
+                  {rest.join(". ")}
                 </p>
-
-                {/* Remaining part of the description in a new paragraph */}
-                {rest.length > 0 && (
-                  <p className="text-[#A5A3A2] text-[16px] leading-[21px] mt-5 ">
-                    {rest.join(". ")}
-                  </p>
-                )}
-
-                <div className="flex justify-end  mr-5">
-                  <span className="flex group-hover:bg-midnight group-hover:text-sunshine items-center bottom-5   h-[50px] absolute  text-midnight justify-center  w-[80px] rounded-[30px] bg-sunshine cursor-pointer">
-                    <ArrowRight />
-                  </span>
-                </div>
+              )}
+              <div className="flex justify-end mr-5">
+                <span className="flex items-center justify-center h-[40px] md:h-[50px] w-[70px] md:w-[80px] absolute bottom-5 bg-sunshine text-midnight group-hover:bg-midnight group-hover:text-sunshine rounded-[20px] md:rounded-[30px] cursor-pointer">
+                  <ArrowRight />
+                </span>
               </div>
-            );
-          }
-          return null;
+            </div>
+          );
         })}
       </FadeInSection>
 
-      {/* Second Column for Type 2 and Type 3 */}
-
-      <div className="flex justify-between  flex-col">
+      {/* Second Column for Type 2 and Type 3 (stacked) */}
+      <div className="flex flex-col space-y-2">
+        {/* Type 2 */}
         <FadeInSection delay={300}>
-          {TaskItems.map((item, index) => {
-            if (item.type === 2) {
-              return (
-                <div
-                  key={index}
-                  className="flex hover:text-midnight flex-col hover:bg-sunshine transition-all duration-500 ease-in-out  relative bg-espresso h-[257px] group  p-4 text-white rounded-[30px] shadow-lg mb-2"
-                >
-                  <h1 className="text-[24px] group-hover:text-midnight  font-[500] ">{item.type}.</h1>
-                  <h2 className="text-[32px] group-hover:text-midnight mt-3 font-[500] w-[260px] h-[81px] leading-[38px]  ">
-                    {item.title}
-                  </h2>
-                  <p className="text-[#A5A3A2] font-[500] text-[16px] ">
-                    {item.description}
-                  </p>
-                  <div className="flex justify-end mr-5 ">
-                    <span className="flex group-hover:bg-midnight group-hover:text-sunshine absolute text-midnight rounded-[30px] bottom-5 w-[80px] h-[50px] items-center justify-center    bg-sunshine cursor-pointer">
-                      <ArrowRight />
-                    </span>
-                  </div>
-                </div>
-              );
-            }
-            return null; // Return null if the condition is not met
-          })}
+          {TaskItems.filter(item => item.type === 2).map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col group hover:text-midnight hover:bg-sunshine transition-all duration-500 ease-in-out relative h-[257px] p-6 bg-espresso rounded-[20px] md:rounded-[30px]"
+            >
+              <h1 className="text-[20px] md:text-[24px] group-hover:text-midnight font-[500]">{item.type}.</h1>
+              <h2 className="text-[24px] md:text-[32px] group-hover:text-midnight mt-3 leading-[30px] md:leading-[38px] font-[500]">
+                {item.title}
+              </h2>
+              <p className="text-[#A5A3A2] text-[14px] md:text-[16px] mt-3 font-[500]">
+                {item.description}
+              </p>
+              <div className="flex justify-end mr-5">
+                <span className="flex items-center justify-center h-[40px] md:h-[50px] w-[70px] md:w-[80px] absolute bottom-5 bg-sunshine text-midnight group-hover:bg-midnight group-hover:text-sunshine rounded-[20px] md:rounded-[30px] cursor-pointer">
+                  <ArrowRight />
+                </span>
+              </div>
+            </div>
+          ))}
         </FadeInSection>
+
+        {/* Type 3 */}
         <FadeInSection delay={450}>
-          {TaskItems.map((item, index) => {
-            if (item.type === 3) {
-              return (
-                <div
-                  key={index}
-                  className="flex relative group card_3 hover:bg-sunshine transition-all duration-500 ease-in-out flex-col h-[307px] bg-espresso p-4 text-white rounded-[30px] shadow-lg"
-                >
-                  <h1 className="text-[24px] group-hover:text-midnight font-[500]">{item.type}.</h1>
-                  <h2 className="text-[32px] group-hover:text-midnight mt-3 font-[500] w-[260px] h-[81px] leading-[38px]">
-                    {item.title}
-                  </h2>
-                  <p className="text-[#A5A3A2] font-[500] text-[16px]">
-                    {item.description}
-                  </p>
-                  <div className="flex justify-end mr-5">
-                    <span className="flex items-center absolute bottom-5 h-[50px] rounded-[30px] justify-center p-2  w-[80px] bg-sunshine cursor-pointer text-midnight group-hover:bg-midnight group-hover:text-sunshine transition-colors duration-300 ease-in-out">
-                      <ArrowRight />
-                    </span>
-                  </div>
-                </div>
-              );
-            }
-            return null; // Return null if the condition is not met
-          })}
+          {TaskItems.filter(item => item.type === 3).map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col group hover:text-midnight hover:bg-sunshine transition-all duration-500 ease-in-out relative h-[307px] p-6 bg-espresso rounded-[20px] md:rounded-[30px]"
+            >
+              <h1 className="text-[20px] md:text-[24px] group-hover:text-midnight font-[500]">{item.type}.</h1>
+              <h2 className="text-[24px] md:text-[32px] group-hover:text-midnight mt-3 leading-[30px] md:leading-[38px] font-[500]">
+                {item.title}
+              </h2>
+              <p className="text-[#A5A3A2] text-[14px] md:text-[16px] mt-3 font-[500]">
+                {item.description}
+              </p>
+              <div className="flex justify-end mr-5">
+                <span className="flex items-center justify-center h-[40px] md:h-[50px] w-[70px] md:w-[80px] absolute bottom-5 bg-sunshine text-midnight group-hover:bg-midnight group-hover:text-sunshine rounded-[20px] md:rounded-[30px] cursor-pointer">
+                  <ArrowRight />
+                </span>
+              </div>
+            </div>
+          ))}
         </FadeInSection>
       </div>
 
-      {/* Third Column for Type "" (Tasks) */}
+      {/* Third Column for Empty Type "" */}
       <FadeInSection delay={600}>
-        <div className="rounded-[30px]  card_4 h-[570px] bg-transparent border-dashed border border-[#A5A3A2] p-4">
-          <div class="bg-sunshine w-16 h-16 rounded-full"></div>
-
-          <div class="bg-sunshine relative w-32 h-32 rounded-full"></div>
+        <div className="flex flex-col h-[570px] p-6 bg-transparent border-[1px] border-dashed border-[#A5A3A2] rounded-[20px] md:rounded-[30px]">
+          <div className="bg-sunshine w-16 h-16 rounded-full mb-4"></div>
+          <div className="bg-sunshine w-32 h-32 rounded-full relative mb-4"></div>
           <FallingObject items={TaskItems} />
         </div>
       </FadeInSection>

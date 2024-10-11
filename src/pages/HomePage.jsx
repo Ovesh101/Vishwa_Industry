@@ -68,14 +68,14 @@ const HomePage = () => {
             </div>
 
             {/* Bottom section with two divs for percentage and text */}
-            <div className="flex items-center gap-3 lg:flex-row justify-start  lg:space-y-0 lg:space-x-2 pt-16 lg:pt-[150px]">
+            <div className="flex items-center gap-5 lg:flex-row justify-start  lg:space-y-0 lg:space-x-2 pt-16 lg:pt-[150px]">
               {data.map((item, index) => (
                 <div
                   key={index}
                   className="flex rounded-[20px] w-[220px] h-[140px]  lg:w-[195px]  lg:h-[140px] p-6 px-3 lg:pt-8 pb-4 lg:px-3 bg-cream flex-col justify-between"
                 >
                   {/* Percentage */}
-                  <div className="text-sunshine font-[500] text-[24px] lg:text-[38px] leading-[22px]">
+                  <div className="text-sunshine font-[500] text-[24px] md:text-[38px] leading-[22px]">
                     <h3>{item.percentage}</h3>
                   </div>
 

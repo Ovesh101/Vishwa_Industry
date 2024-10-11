@@ -26,7 +26,7 @@ const Section_1 = () => {
   }, []);
 
   return (
-    <section className="bg-midnight p-2 md:p-6 pt-5 text-white">
+    <section className="bg-midnight p-2  pt-5 text-white">
       {/* First Div */}
       <FadeInSection>
         <div className="h-auto md:h-[300px] rounded-[30px] md:rounded-[50px] bg-earthy p-4 pl-6 pb-20 md:px-10 md:py-10">
@@ -41,7 +41,7 @@ const Section_1 = () => {
       <FadeInSection delay={150}>
         <div
           ref={sectionRef}
-          className="w-full mt-[-70px] md:mt-[-120px] rounded-[20px] md:rounded-[40px] bg-charcoal p-4 md:p-8"
+          className="w-full mt-[-70px] md:mt-[-120px] rounded-[20px] md:rounded-[40px] bg-charcoal p-2 md:p-8"
         >
           <TaskGrid isVisible={isVisible} />
         </div>

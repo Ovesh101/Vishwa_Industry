@@ -13,7 +13,7 @@ const MobileNav = () => {
     <div className="sm:hidden flex justify-end ">
       <button
         onClick={toggleSidebar}
-        className="border sticky top-2  z-50 w-[100px] h-[60px] border-[#A5A3A2]   border-dashed rounded-xl "
+        className="border sticky top-2  z-50 w-[80px] h-[60px] border-[#A5A3A2]   border-dashed rounded-[15px] "
       >
         <div className="text-[16px] text-[#F8F4F1] text-center  font-[500]">
           {isOpen ? <h1>Close</h1> : <h1>Menu</h1>}
@@ -21,7 +21,7 @@ const MobileNav = () => {
       </button>
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-charcoal text-white transform transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-60 bg-charcoal text-white transform transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } z-40`}
       >
