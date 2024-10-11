@@ -52,7 +52,7 @@ const Header = () => {
             <div className="text-[16px] text-[#F8F4F1] text-center  font-[500]"><img src="/Images/Logo.svg" className="w-16 h-16" alt="Logo" /></div>
           </Link>
 
-          <form onSubmit={handleSearch} className="mb-3 w-[200px] md:w-full h-[60px] pt-2">
+          <form onSubmit={handleSearch} className="mb-3 w-[100px] md:w-full h-[60px] pt-2">
             <div className="relative">
               <span className="absolute font-[500] left-4 top-1/2 transform -translate-y-1/2">
                 <LucideSearch className="h-[16px] w-[16px]" />

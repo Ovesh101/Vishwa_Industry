@@ -32,7 +32,7 @@ const ProductListing = () => {
         <h2 className="text-[24px] font-[500]">No products available</h2>
       </div>
     ) : (
-      <div className="grid grid-cols-1 place-items-center  md:p-5 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 place-items-center   md:p-5 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {filteredProducts.map((card, index) => (
           <FadeInSection key={card.id} delay={150 + index * 80}>
             <div className="relative w-full h-full rounded-[30px] overflow-hidden">
