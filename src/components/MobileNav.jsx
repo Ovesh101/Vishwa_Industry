@@ -46,6 +46,7 @@ const MobileNav = () => {
               <Link
                 key={link.route}
                 to={link.route}
+                onClick={toggleSidebar}
                 className="flex items-center gap-4 p-2 hover:bg-gray-700 rounded-lg"
               >
                 <img src={link.imgUrl} alt={link.label} className="w-5 h-5" />
