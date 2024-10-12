@@ -46,13 +46,13 @@ const Header = () => {
 
   return (
     <header className="bg-midnight text-gray-300 px-2 ">
-      <div className="grid grid-cols-[1.5fr_2fr] items-center gap-2 md:gap-4">
+      <div className="grid grid-cols-[5fr_1fr] md:grid-cols-[1.5fr_2fr]  md:items-center gap-2 md:gap-4">
         <div className="flex items-center space-x-2 md:space-x-4">
-          <Link to="/" className="border w-[80px] px-4 md:w-[130px] h-[60px] border-[#A5A3A2]  md:px-8 border-dashed rounded-[15px] flex-shrink-0">
-            <div className="text-[16px] text-[#F8F4F1] text-center  font-[500]"><img src="/Images/Logo.svg" className="w-16 h-16" alt="Logo" /></div>
+          <Link to="/" className="border w-[70px] px-2 md:w-[130px] h-[60px] border-[#A5A3A2]  md:px-8 border-dashed rounded-[15px] flex-shrink-0">
+            <div className="text-[16px] text-[#F8F4F1] text-center pt-1 md:pt-0  font-[500]"><img src="/Images/Logo.svg" className="w-14 h-14 md:w-16 md:h-16  object-contain " alt="Logo" /></div>
           </Link>
 
-          <form onSubmit={handleSearch} className="mb-3 w-[100px] md:w-full h-[60px] pt-2">
+          <form onSubmit={handleSearch} className="mb-3 w-full md:w-full h-[60px] pt-2">
             <div className="relative">
               <span className="absolute font-[500] left-4 top-1/2 transform -translate-y-1/2">
                 <LucideSearch className="h-[16px] w-[16px]" />

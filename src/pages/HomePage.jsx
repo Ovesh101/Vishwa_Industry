@@ -58,7 +58,7 @@ const HomePage = () => {
               </div>
 
               {/* Additional text */}
-              <p className="text-[14px] sm:text-[15px] md:text-[16px] font-[500] mt-3 sm:mt-4 lg:mt-5 text-[#A5A3A2] w-full max-w-full md:max-w-[90%] lg:max-w-[399px] h-auto lg:h-auto">
+              <p className="text-[16px] font-[500] mt-3 sm:mt-4 lg:mt-5 text-[#A5A3A2] w-full   md:max-w-[399px] h-auto lg:h-auto">
                 Vishwa Industries is an enterprise that enables the{" "}
                 <span className={`metaball ${loaded ? "loaded" : ""}`}>
                   automation of business resources using the tools

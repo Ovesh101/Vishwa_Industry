@@ -10,10 +10,10 @@ const MobileNav = () => {
   };
 
   return (
-    <div className="sm:hidden flex justify-end ">
+    <div className="sm:hidden  ">
       <button
         onClick={toggleSidebar}
-        className="border sticky top-2  z-50 w-[80px] h-[60px] border-[#A5A3A2]   border-dashed rounded-[15px] "
+        className="border sticky top-2  z-50 w-[70px] h-[60px] border-[#A5A3A2]   border-dashed rounded-[15px] "
       >
         <div className="text-[16px] text-[#F8F4F1] text-center  font-[500]">
           {isOpen ? <h1>Close</h1> : <h1>Menu</h1>}
