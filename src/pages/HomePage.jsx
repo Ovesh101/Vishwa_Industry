@@ -30,8 +30,16 @@ const HomePage = () => {
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr_1fr] bg-midnight">
-        {/* Video section for mobile first */}
-        <div className="relative col-span-1 lg:col-span-2 order-1 lg:order-2">
+        {/* Left side with two stacked boxes for large screens */}
+        <div className="col-span-1 bg-transparent z-10 flex flex-col space-y-4 p-2 order-1">
+          {/* Infinite loop section (Carousel) */}
+          <div className="bg-earthy transition-all overflow-hidden duration-300 ease-in-out hover:bg-sunshine z-10 rounded-[20px] lg:rounded-[30px]">
+            <CarouselItemContainer items={CarouselItem} />
+          </div>
+        </div>
+
+        {/* Video section below carousel */}
+        <div className="relative col-span-1 lg:col-span-2 order-2">
           <video
             className="h-full w-full object-cover"
             src="/Video/engine.mp4" // Replace with your video source
@@ -42,14 +50,8 @@ const HomePage = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-midnight bg-opacity-70" />
         </div>
 
-        {/* Left side with two stacked boxes for large screens, placed below video for mobile */}
-        <div className="col-span-1 bg-transparent z-10 flex flex-col space-y-4 p-2 order-2 lg:order-1">
-          {/* Infinite loop section (Carousel) */}
-          <div className="bg-earthy transition-all overflow-hidden duration-300 ease-in-out hover:bg-sunshine z-10 rounded-[20px] lg:rounded-[30px]">
-            <CarouselItemContainer items={CarouselItem} />
-          </div>
-
-          {/* Transformation section */}
+        {/* Transformation section below the video */}
+        <div className="col-span-1 bg-transparent z-10 flex flex-col space-y-4 p-2 order-3 lg:order-1">
           <div className="z-10 border justify-between border-dashed border-[#A5A3A2] rounded-[20px] lg:rounded-[30px] p-6 lg:p-10 flex flex-col">
             {/* Title with each word on a new line */}
             <div className="flex flex-col justify-start">
@@ -58,7 +60,7 @@ const HomePage = () => {
               </div>
 
               {/* Additional text */}
-              <p className="text-[16px] font-[500] mt-3 sm:mt-4 lg:mt-5 text-[#A5A3A2] w-full   md:max-w-[399px] h-auto lg:h-auto">
+              <p className="md:text-[16px] text-[12px] font-[500] mt-3 sm:mt-4 lg:mt-5 text-[#A5A3A2] w-full   md:max-w-[399px] h-auto lg:h-auto">
                 Vishwa Industries is an enterprise that enables the{" "}
                 <span className={`metaball ${loaded ? "loaded" : ""}`}>
                   automation of business resources using the tools

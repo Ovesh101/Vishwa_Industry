@@ -10,30 +10,38 @@ const MobileNav = () => {
   };
 
   return (
-    <div className="sm:hidden  ">
+    <div className="sm:hidden ">
+      {/* Button to toggle the sidebar */}
       <button
         onClick={toggleSidebar}
-        className="border sticky top-2  z-50 w-[70px] h-[60px] border-[#A5A3A2]   border-dashed rounded-[15px] "
+        className={` sticky top-2 ${
+          isOpen ? "hidden bg-gray-500 " : ""
+        } right-2 z-50 w-[70px] h-[60px] border-[#A5A3A2] border-dashed rounded-[15px] bg-transparent border`}
       >
-        <div className="text-[16px] text-[#F8F4F1] text-center  font-[500]">
-          {isOpen ? <h1>Close</h1> : <h1>Menu</h1>}
+        <div className={`text-[16px]  text-[#F8F4F1] text-center font-[500]`}>
+          {!isOpen && "Menu"}
         </div>
       </button>
+
       {/* Sidebar */}
       <div
         className={`fixed top-0 right-0 h-full w-60 bg-charcoal text-white transform transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } z-40`}
       >
+        <button
+          onClick={toggleSidebar}
+          className=" absolute top-2 right-2 z-50 w-[70px] h-[60px] border-[#A5A3A2] border-dashed rounded-[15px] bg-transparent border"
+        >
+          <div className="text-[16px] text-[#F8F4F1] text-center font-[500]">
+            {isOpen ? "Close" : ""}
+          </div>
+        </button>
         <div className="p-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center mb-8">
-            <img src="/icons/logo.svg" alt="Logo" className="w-8 h-8 mr-2" />
-            <span className="text-2xl font-bold">Yoom</span>
-          </Link>
 
           {/* Sidebar Links */}
-          <nav className="flex flex-col space-y-4">
+          <nav className="flex pt-14 flex-col space-y-4">
             {SideBarLinks.map((link) => (
               <Link
                 key={link.route}
@@ -47,6 +55,7 @@ const MobileNav = () => {
           </nav>
         </div>
       </div>
+
       {/* Overlay */}
       {isOpen && (
         <div
