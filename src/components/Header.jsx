@@ -62,7 +62,7 @@ const Header = () => {
                 placeholder="SEARCH..."
                 value={searchQuery}
                 onChange={handleInputChange} // Update the query
-                className="w-full py-4 text-[16px] font-[500] placeholder-[#454545] px-10 bg-transparent border border-gray-500 border-dashed rounded-[15px] text-[#F8F4F1] focus:outline-none"
+                className="w-full py-4 text-[16px] font-[500] placeholder-[#454545] px-10 bg-transparent border border-[#A5A3A2] border-dashed rounded-[15px] text-[#F8F4F1] focus:outline-none"
               />
             </div>
           </form>
