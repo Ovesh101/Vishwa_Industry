@@ -30,9 +30,9 @@ const HomePage = () => {
     <>
       <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_2fr] bg-midnight">
         {/* Left side with carousel and transformation section stacked for large screens */}
-        <div className="col-span-1 order-1 bg-transparent z-10 flex flex-col space-y-4 p-2  lg:order-none">
+        <div className="col-span-1  bg-transparent z-10 flex flex-col space-y-4 p-2  lg:order-none">
           {/* Infinite loop section (Carousel) */}
-          <div className="bg-earthy transition-all  md:order-none overflow-hidden duration-300 ease-in-out hover:bg-sunshine z-10 rounded-[20px] lg:rounded-[30px]">
+          <div className="bg-earthy transition-all flex md:order-none overflow-hidden duration-300 ease-in-out hover:bg-sunshine z-10 rounded-[20px] lg:rounded-[30px]">
             <CarouselItemContainer items={CarouselItem} />
           </div>
 
@@ -40,12 +40,12 @@ const HomePage = () => {
           <div className="z-10 border   md:order-none border-dashed border-[#A5A3A2] rounded-[20px] lg:rounded-[30px] p-6 lg:p-10 flex flex-col">
             {/* Title with each word on a new line */}
             <div className="flex flex-col justify-start">
-              <div className="text-[40px] lg:text-[70px] lg:w-[433px] h-auto lg:h-[231px] text-[#F8F4F1] leading-[42px] lg:leading-[72px] font-[500]">
+              <div className="text-[48px] lg:text-[70px] lg:w-[433px] h-auto lg:h-[231px] text-[#F8F4F1] leading-[50px] lg:leading-[72px] font-[500]">
                 Transforming Business Operations
               </div>
 
               {/* Additional text */}
-              <p className="md:text-[16px] text-[12px] font-[500] mt-3 sm:mt-4 lg:mt-5 text-[#A5A3A2] w-full md:max-w-[399px] h-auto lg:h-auto">
+              <p className="md:text-[16px] text-[14px] font-[500] mt-10 sm:mt-4 lg:mt-5 text-[#A5A3A2] w-[332px] md:max-w-[399px] h-auto md:h-auto">
                 Vishwa Industries is an enterprise that enables the{" "}
                 <span className={`metaball ${loaded ? "loaded" : ""}`}>
                   automation of business resources using the tools
@@ -55,7 +55,7 @@ const HomePage = () => {
             </div>
 
             {/* Bottom section with two divs for percentage and text */}
-            <div className="flex items-center gap-5 lg:flex-row justify-start lg:space-y-0 lg:space-x-2 pt-16 lg:pt-[150px]">
+            <div className="md:flex items-center hidden  gap-5 lg:flex-row justify-start lg:space-y-0 lg:space-x-2 pt-16 lg:pt-[150px]">
               {data.map((item, index) => (
                 <div
                   key={index}

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const CarouselItemContainer = ({ items }) => {
   return (
-    <div className="flex w-[634px] h-[220px] items-center justify-center">
+    <div className="flex w-[634px] h-[90px] md:h-[220px] items-center justify-center">
       <Marquee  pauseOnHover gradient={false} speed={100}>
         <div className="flex  justify-end ">
           {items.map((item) => (
