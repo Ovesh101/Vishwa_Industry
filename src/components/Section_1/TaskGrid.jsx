@@ -6,7 +6,7 @@ import FallingObject from "../FallingObject";
 
 const TaskGrid = () => {
   return (
-    <div className="p-2 md:p-4 bg-charcoal grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-[30px] lg:rounded-[50px]">
+    <div className=" md:p-4 bg-transparent md:bg-charcoal grid grid-cols-1 lg:grid-cols-3 gap-2 md:gap-6 rounded-[30px] lg:rounded-[50px]">
       {/* First Column for Type 1 */}
       <FadeInSection delay={150}>
         {TaskItems.filter(item => item.type === 1).map((item, index) => {
