@@ -13,8 +13,8 @@ const Section_2 = () => {
         </div>
       </FadeInSection>
       <FadeInSection delay={150}>
-        <div className="w-full  md:mt-[-155px] p-2   rounded-[20px]    bg-charcoal">
-          <div className="grid grid-cols-1 pt-2 md:pt-12 place-items-center p-2 md:p-6 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="w-full  md:mt-[-155px]   rounded-[20px]    md:bg-charcoal">
+          <div className="grid grid-cols-1 pt-2 md:pt-12 place-items-center  md:p-6 md:gap-4 gap-2 sm:grid-cols-2 lg:grid-cols-4">
             {cardData.map((card, index) => (
               <FadeInSection key={card.id} delay={150 + index * 80}>
                 <div className="relative w-full h-full rounded-[30px] overflow-hidden">
