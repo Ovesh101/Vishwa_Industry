@@ -28,7 +28,7 @@ body {
   left: -2px;
   height: 100%;
   width: 0%; /* Start with no width */
-  background-color: #feeca2; /* Background color */
+  background-color: ; /* Background color */
   z-index: -1; /* Ensure it's behind the text */
   transition: width 3s ease; /* Smooth transition on hover */
   border-radius: 4px;
