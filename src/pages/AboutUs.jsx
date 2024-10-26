@@ -1,3 +1,5 @@
+import { aboutUsContent } from "../utils/constant";
+
 const AboutUs = () => {
   return (
     <div className="bg-midnight">
@@ -12,12 +14,47 @@ const AboutUs = () => {
 
         {/* content */}
         <div className="pt-32 pl-4 pr-24 z-[1]">
-          <p className="pt-24 text-[22px] font-extralight leading-8">
-            At <span className="text-[40px] font-bold text-[#0074E8]">Vishwa Industries</span> we are ommitted to delivering high-quality, reliable gear products through cutting-edge technology and skilled craftsmanship, ensuring customer satisfaction and supporting the growth of industrial sectors with sustainable and efficient solutions.
-          </p>
-          <p className="pt-24 text-[22px] font-extralight leading-8">
-            Our <span className="text-[#0074E8]">vision</span> is to be a global leader in precision gear manufacturing, driving innovation and excellence in engineering solutions that power industries worldwide.
-          </p>
+          {aboutUsContent.map((para, paraIndex) => {
+            if (para.type === "para") {
+              return (
+                <p
+                  key={paraIndex}
+                  className="pt-24 text-[22px] font-extralight leading-8"
+                >
+                  {para.content.map((piece, pieceIndex) => {
+                    const { text, highlight, increaseText, bold } = piece;
+
+                    const classNames = [
+                      highlight && "text-[#0074E8]",
+                      increaseText && "text-[40px]",
+                      bold && "font-bold",
+                    ]
+                      .filter(Boolean)
+                      .join(" ");
+
+                    return typeof piece === "string" ? (
+                      piece
+                    ) : (
+                      <span key={pieceIndex} className={classNames}>
+                        {text}
+                      </span>
+                    );
+                  })}
+                </p>
+              );
+            } else if (para.type === "image") {
+              return (
+                <p
+                  key={paraIndex}
+                  className="pt-24 text-[22px] font-extralight leading-8"
+                >
+                  <img src={para.url} alt={para.title} className="rounded-[30px]" />
+                  {para.title}
+                </p>
+              )
+            }
+            return null;
+          })}
         </div>
       </div>
     </div>
